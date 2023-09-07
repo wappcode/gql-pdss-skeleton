@@ -1,6 +1,5 @@
 {
     "name": "wappcode/gql-pdss-skeleton",
-    "version": "1.0.1",
     "description": "Skeleton Graphql + Doctrine",
     "type": "project",
     "require": {
