@@ -17,6 +17,10 @@ class AppModule extends AbstractModule
     {
         return require(__DIR__ . '/../config/module.config.php');
     }
+    function getSchema(): string
+    {
+        return file_get_contents(__DIR__ . '/../config/schema.graphql');
+    }
     function getServicesAndGQLTypes(): array
     {
         return [
@@ -32,7 +36,9 @@ class AppModule extends AbstractModule
      */
     function getResolvers(): array
     {
-        return [];
+        return [
+            "Query::echo" => fn($root, $args, $context, $info) => $args["message"],
+        ];
     }
     /**
      * Array con los graphql Queries del módulo
@@ -41,18 +47,7 @@ class AppModule extends AbstractModule
      */
     function getQueryFields(): array
     {
-        return [
-            'echo' =>  [
-                'type' => Type::nonNull(Type::string()),
-                'args' => [
-                    'message' => Type::nonNull(Type::string())
-                ],
-
-                'resolve' => function ($root, $args) {
-                    return $args["message"];
-                }
-            ],
-        ];
+        return [];
     }
     /**
      * Array con los graphql mutations del módulo

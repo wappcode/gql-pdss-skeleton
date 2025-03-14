@@ -7,3 +7,4 @@ public/uploads/tmp/*
 !public/uploads/.gitkeep
 !public/uploads/tmp
 !public/uploads/tmp/.gitkeep
+.vscode/

@@ -3,7 +3,8 @@
     "description": "Skeleton Graphql + Doctrine",
     "type": "project",
     "require": {
-        "wappcode/gqlpdss": "^3.0"
+        "php": ">=8 ",
+        "wappcode/gqlpdss": "dev-master"
     },
     "autoload": {
         "psr-4": {

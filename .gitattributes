@@ -1,3 +1,4 @@
 dev/    export-ignore
 dev-docs/    export-ignore
 composer.lock export-ignore
+dockerfiles_gql_pdss_skeleton_php8 export-ignore
