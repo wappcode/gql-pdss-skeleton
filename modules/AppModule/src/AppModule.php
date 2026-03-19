@@ -2,8 +2,7 @@
 
 namespace AppModule;
 
-use GPDCore\Library\AbstractModule;
-use GraphQL\Type\Definition\Type;
+use GPDCore\Core\AbstractModule;
 
 class AppModule extends AbstractModule
 {
@@ -21,13 +20,25 @@ class AppModule extends AbstractModule
     {
         return file_get_contents(__DIR__ . '/../config/schema.graphql');
     }
-    function getServicesAndGQLTypes(): array
+    function getServices(): array
     {
         return [
             'invokables' => [],
             'factories' => [],
             'aliases' => []
         ];
+    }
+    function getMiddlewares(): array
+    {
+        return [];
+    }
+    public function getRoutes(): array
+    {
+        return [];
+    }
+    public function getTypes(): array
+    {
+        return [];
     }
     /**
      * Array con los resolvers del módulo
@@ -39,23 +50,5 @@ class AppModule extends AbstractModule
         return [
             "Query::echo" => fn($root, $args, $context, $info) => $args["message"],
         ];
-    }
-    /**
-     * Array con los graphql Queries del módulo
-     *
-     * @return array
-     */
-    function getQueryFields(): array
-    {
-        return [];
-    }
-    /**
-     * Array con los graphql mutations del módulo
-     *
-     * @return array
-     */
-    function getMutationFields(): array
-    {
-        return [];
     }
 }

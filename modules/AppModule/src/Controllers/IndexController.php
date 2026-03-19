@@ -2,14 +2,18 @@
 
 namespace AppModule\Controllers;
 
-use GPDCore\Library\AbstractAppController;
+use GPDCore\Routing\AbstractAppController;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class IndexController extends AbstractAppController
 {
 
 
-    public function dispatch()
+    public function dispatch(ServerRequestInterface $request): ResponseInterface
     {
-        /** Print JSON Response */
+        return $this->createJsonResponse([
+            "message" => "Hello World!"
+        ]);
     }
 }
